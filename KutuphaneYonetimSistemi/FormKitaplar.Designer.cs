@@ -104,6 +104,7 @@
             this.buttonKitapEkle.TabIndex = 12;
             this.buttonKitapEkle.Text = "Yeni Kitap Ekle";
             this.buttonKitapEkle.UseVisualStyleBackColor = true;
+            this.buttonKitapEkle.Click += new System.EventHandler(this.buttonKitapEkle_Click);
             // 
             // textBoxKitapTurKodu
             // 
@@ -216,6 +217,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.groupBox2.Controls.Add(this.buttonKitapOduncVer);
             this.groupBox2.Controls.Add(this.dateTimePickerOduncAlmaTarihi);
             this.groupBox2.Controls.Add(this.textBoxOduncAlan);
@@ -338,35 +340,37 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dataGridViewKitaplar);
-            this.groupBox4.Location = new System.Drawing.Point(0, 409);
+            this.groupBox4.Location = new System.Drawing.Point(12, 409);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1126, 228);
+            this.groupBox4.Size = new System.Drawing.Size(1114, 243);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Kitap Listesi";
             // 
             // dataGridViewKitaplar
             // 
+            this.dataGridViewKitaplar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.dataGridViewKitaplar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewKitaplar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewKitaplar.Location = new System.Drawing.Point(3, 19);
             this.dataGridViewKitaplar.Name = "dataGridViewKitaplar";
             this.dataGridViewKitaplar.RowTemplate.Height = 25;
-            this.dataGridViewKitaplar.Size = new System.Drawing.Size(1120, 206);
+            this.dataGridViewKitaplar.Size = new System.Drawing.Size(1108, 221);
             this.dataGridViewKitaplar.TabIndex = 0;
             // 
             // FormKitaplar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1138, 651);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.ClientSize = new System.Drawing.Size(1138, 664);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormKitaplar";
             this.Text = "AHS Kütüphane Kitap Yönetim Sistemi";
+            this.Load += new System.EventHandler(this.FormKitaplar_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
