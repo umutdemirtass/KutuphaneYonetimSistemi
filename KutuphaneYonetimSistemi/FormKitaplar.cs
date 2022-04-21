@@ -191,5 +191,52 @@ namespace KutuphaneYonetimSistemi
                 verileriGoster();
             }
         }
+
+        private void buttonTemizle_Click(object sender, EventArgs e)
+        {
+            labelID.Text = "-";
+            textBoxKitapAdi.Text = "";
+            textBoxYazarAdi.Text = "";
+            textBoxYazarSoyad.Text = "";
+            textBoxISBN.Text = "";
+            textBoxKitapTurKodu.Text = "";
+            textBoxOduncAlan.Text = "";
+        }
+
+        private void buttonAra_Click(object sender, EventArgs e)
+        {
+            aramaSonuclariniGoster();
+        }
+
+        private void aramaSonuclariniGoster()
+        {
+            try
+            {
+                string q = "SELECT * FROM TableKitaplar WHERE KitapAdi LIKE  '" + textBoxKitapAdi.Text
+                                                                                + "%' AND YazarAdi LIKE '" + textBoxYazarAdi.Text + "%'  "
+                                                                                + " AND YazarSoyadi LIKE '" + textBoxYazarSoyad + "%'  "
+                                                                                + " AND ISBN LIKE '" + textBoxISBN.Text + "%'  "
+                                                                                + " AND KitapTurKodu LIKE '" + textBoxKitapTurKodu.Text + "%'  "
+                                                                                + " AND OduncAlan LIKE '" + textBoxOduncAlan.Text + "%'  ";
+                SqlDataAdapter da = new SqlDataAdapter(q, baglanti);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    dataGridViewKitaplar.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void buttonTümKitaplarıGöster_Click(object sender, EventArgs e)
+        {
+            verileriGoster();
+        }
     }
 }

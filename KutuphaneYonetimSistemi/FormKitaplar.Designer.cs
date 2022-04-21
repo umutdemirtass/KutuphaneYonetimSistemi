@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonAra = new System.Windows.Forms.Button();
+            this.buttonTemizle = new System.Windows.Forms.Button();
             this.buttonKitapBilgiGuncelle = new System.Windows.Forms.Button();
             this.buttonKitapEkle = new System.Windows.Forms.Button();
             this.textBoxKitapTurKodu = new System.Windows.Forms.TextBox();
@@ -57,6 +59,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridViewKitaplar = new System.Windows.Forms.DataGridView();
+            this.buttonTümKitaplarıGöster = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -66,6 +69,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonTümKitaplarıGöster);
+            this.groupBox1.Controls.Add(this.buttonAra);
+            this.groupBox1.Controls.Add(this.buttonTemizle);
             this.groupBox1.Controls.Add(this.buttonKitapBilgiGuncelle);
             this.groupBox1.Controls.Add(this.buttonKitapEkle);
             this.groupBox1.Controls.Add(this.textBoxKitapTurKodu);
@@ -82,16 +88,36 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(12, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(436, 403);
+            this.groupBox1.Size = new System.Drawing.Size(674, 403);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kitap Kayıt ve Güncelleme";
             // 
+            // buttonAra
+            // 
+            this.buttonAra.Location = new System.Drawing.Point(411, 323);
+            this.buttonAra.Name = "buttonAra";
+            this.buttonAra.Size = new System.Drawing.Size(110, 40);
+            this.buttonAra.TabIndex = 15;
+            this.buttonAra.Text = "Ara";
+            this.buttonAra.UseVisualStyleBackColor = true;
+            this.buttonAra.Click += new System.EventHandler(this.buttonAra_Click);
+            // 
+            // buttonTemizle
+            // 
+            this.buttonTemizle.Location = new System.Drawing.Point(281, 323);
+            this.buttonTemizle.Name = "buttonTemizle";
+            this.buttonTemizle.Size = new System.Drawing.Size(110, 40);
+            this.buttonTemizle.TabIndex = 14;
+            this.buttonTemizle.Text = "Temizle";
+            this.buttonTemizle.UseVisualStyleBackColor = true;
+            this.buttonTemizle.Click += new System.EventHandler(this.buttonTemizle_Click);
+            // 
             // buttonKitapBilgiGuncelle
             // 
-            this.buttonKitapBilgiGuncelle.Location = new System.Drawing.Point(69, 324);
+            this.buttonKitapBilgiGuncelle.Location = new System.Drawing.Point(16, 324);
             this.buttonKitapBilgiGuncelle.Name = "buttonKitapBilgiGuncelle";
-            this.buttonKitapBilgiGuncelle.Size = new System.Drawing.Size(121, 40);
+            this.buttonKitapBilgiGuncelle.Size = new System.Drawing.Size(110, 40);
             this.buttonKitapBilgiGuncelle.TabIndex = 13;
             this.buttonKitapBilgiGuncelle.Text = "Kitap Bilgileri Güncelle";
             this.buttonKitapBilgiGuncelle.UseVisualStyleBackColor = true;
@@ -99,9 +125,9 @@
             // 
             // buttonKitapEkle
             // 
-            this.buttonKitapEkle.Location = new System.Drawing.Point(226, 324);
+            this.buttonKitapEkle.Location = new System.Drawing.Point(150, 324);
             this.buttonKitapEkle.Name = "buttonKitapEkle";
-            this.buttonKitapEkle.Size = new System.Drawing.Size(121, 40);
+            this.buttonKitapEkle.Size = new System.Drawing.Size(110, 40);
             this.buttonKitapEkle.TabIndex = 12;
             this.buttonKitapEkle.Text = "Yeni Kitap Ekle";
             this.buttonKitapEkle.UseVisualStyleBackColor = true;
@@ -110,48 +136,48 @@
             // textBoxKitapTurKodu
             // 
             this.textBoxKitapTurKodu.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxKitapTurKodu.Location = new System.Drawing.Point(226, 247);
+            this.textBoxKitapTurKodu.Location = new System.Drawing.Point(183, 246);
             this.textBoxKitapTurKodu.Name = "textBoxKitapTurKodu";
-            this.textBoxKitapTurKodu.Size = new System.Drawing.Size(121, 30);
+            this.textBoxKitapTurKodu.Size = new System.Drawing.Size(201, 30);
             this.textBoxKitapTurKodu.TabIndex = 11;
             // 
             // textBoxISBN
             // 
             this.textBoxISBN.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxISBN.Location = new System.Drawing.Point(226, 206);
+            this.textBoxISBN.Location = new System.Drawing.Point(183, 205);
             this.textBoxISBN.Name = "textBoxISBN";
-            this.textBoxISBN.Size = new System.Drawing.Size(121, 30);
+            this.textBoxISBN.Size = new System.Drawing.Size(201, 30);
             this.textBoxISBN.TabIndex = 10;
             // 
             // textBoxYazarSoyad
             // 
             this.textBoxYazarSoyad.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxYazarSoyad.Location = new System.Drawing.Point(226, 163);
+            this.textBoxYazarSoyad.Location = new System.Drawing.Point(183, 162);
             this.textBoxYazarSoyad.Name = "textBoxYazarSoyad";
-            this.textBoxYazarSoyad.Size = new System.Drawing.Size(188, 30);
+            this.textBoxYazarSoyad.Size = new System.Drawing.Size(373, 30);
             this.textBoxYazarSoyad.TabIndex = 9;
             // 
             // textBoxYazarAdi
             // 
             this.textBoxYazarAdi.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxYazarAdi.Location = new System.Drawing.Point(226, 123);
+            this.textBoxYazarAdi.Location = new System.Drawing.Point(183, 122);
             this.textBoxYazarAdi.Name = "textBoxYazarAdi";
-            this.textBoxYazarAdi.Size = new System.Drawing.Size(188, 30);
+            this.textBoxYazarAdi.Size = new System.Drawing.Size(373, 30);
             this.textBoxYazarAdi.TabIndex = 8;
             // 
             // textBoxKitapAdi
             // 
             this.textBoxKitapAdi.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxKitapAdi.Location = new System.Drawing.Point(226, 77);
+            this.textBoxKitapAdi.Location = new System.Drawing.Point(183, 76);
             this.textBoxKitapAdi.Name = "textBoxKitapAdi";
-            this.textBoxKitapAdi.Size = new System.Drawing.Size(188, 30);
+            this.textBoxKitapAdi.Size = new System.Drawing.Size(373, 30);
             this.textBoxKitapAdi.TabIndex = 1;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(59, 254);
+            this.label7.Location = new System.Drawing.Point(16, 253);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(161, 23);
             this.label7.TabIndex = 7;
@@ -161,7 +187,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(59, 40);
+            this.label1.Location = new System.Drawing.Point(16, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 23);
             this.label1.TabIndex = 1;
@@ -170,7 +196,7 @@
             // labelID
             // 
             this.labelID.AutoSize = true;
-            this.labelID.Location = new System.Drawing.Point(226, 48);
+            this.labelID.Location = new System.Drawing.Point(183, 47);
             this.labelID.Name = "labelID";
             this.labelID.Size = new System.Drawing.Size(12, 15);
             this.labelID.TabIndex = 2;
@@ -180,7 +206,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(59, 80);
+            this.label3.Location = new System.Drawing.Point(16, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 23);
             this.label3.TabIndex = 3;
@@ -190,7 +216,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(59, 170);
+            this.label5.Location = new System.Drawing.Point(16, 169);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(131, 23);
             this.label5.TabIndex = 5;
@@ -200,7 +226,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(59, 213);
+            this.label6.Location = new System.Drawing.Point(16, 212);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 23);
             this.label6.TabIndex = 6;
@@ -210,7 +236,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(59, 126);
+            this.label4.Location = new System.Drawing.Point(16, 125);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 23);
             this.label4.TabIndex = 4;
@@ -224,7 +250,7 @@
             this.groupBox2.Controls.Add(this.textBoxOduncAlan);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Location = new System.Drawing.Point(465, 0);
+            this.groupBox2.Location = new System.Drawing.Point(709, 0);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(326, 403);
             this.groupBox2.TabIndex = 0;
@@ -284,7 +310,7 @@
             this.groupBox3.Controls.Add(this.labelGecikmeBedeli);
             this.groupBox3.Controls.Add(this.buttonGecikmeBedeliHesapla);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Location = new System.Drawing.Point(807, 0);
+            this.groupBox3.Location = new System.Drawing.Point(1055, 0);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(319, 403);
             this.groupBox3.TabIndex = 0;
@@ -346,7 +372,7 @@
             this.groupBox4.Controls.Add(this.dataGridViewKitaplar);
             this.groupBox4.Location = new System.Drawing.Point(12, 409);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1114, 243);
+            this.groupBox4.Size = new System.Drawing.Size(1362, 243);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Kitap Listesi";
@@ -360,16 +386,26 @@
             this.dataGridViewKitaplar.Location = new System.Drawing.Point(3, 19);
             this.dataGridViewKitaplar.Name = "dataGridViewKitaplar";
             this.dataGridViewKitaplar.RowTemplate.Height = 25;
-            this.dataGridViewKitaplar.Size = new System.Drawing.Size(1108, 221);
+            this.dataGridViewKitaplar.Size = new System.Drawing.Size(1356, 221);
             this.dataGridViewKitaplar.TabIndex = 0;
             this.dataGridViewKitaplar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKitaplar_CellClick);
+            // 
+            // buttonTümKitaplarıGöster
+            // 
+            this.buttonTümKitaplarıGöster.Location = new System.Drawing.Point(545, 324);
+            this.buttonTümKitaplarıGöster.Name = "buttonTümKitaplarıGöster";
+            this.buttonTümKitaplarıGöster.Size = new System.Drawing.Size(110, 40);
+            this.buttonTümKitaplarıGöster.TabIndex = 16;
+            this.buttonTümKitaplarıGöster.Text = "Tüm Kitapları Göster";
+            this.buttonTümKitaplarıGöster.UseVisualStyleBackColor = true;
+            this.buttonTümKitaplarıGöster.Click += new System.EventHandler(this.buttonTümKitaplarıGöster_Click);
             // 
             // FormKitaplar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1138, 664);
+            this.ClientSize = new System.Drawing.Size(1387, 664);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -420,5 +456,8 @@
         private Button buttonGecikmeBedeliHesapla;
         private Label label10;
         private Button buttonKitapOduncVer;
+        private Button buttonTemizle;
+        private Button buttonAra;
+        private Button buttonTümKitaplarıGöster;
     }
 }
