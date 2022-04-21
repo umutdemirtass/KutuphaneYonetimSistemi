@@ -239,6 +239,7 @@
             this.buttonKitapOduncVer.TabIndex = 17;
             this.buttonKitapOduncVer.Text = "Kitabı Ödünç Ver";
             this.buttonKitapOduncVer.UseVisualStyleBackColor = true;
+            this.buttonKitapOduncVer.Click += new System.EventHandler(this.buttonKitapOduncVer_Click);
             // 
             // dateTimePickerOduncAlmaTarihi
             // 

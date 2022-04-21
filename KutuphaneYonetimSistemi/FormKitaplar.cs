@@ -115,7 +115,39 @@ namespace KutuphaneYonetimSistemi
             {
                 baglanti.Close();
             }
-            
+            verileriGoster();
+        }
+
+        private void buttonKitapOduncVer_Click(object sender, EventArgs e)
+        {
+            if (labelID.Text != "-") 
+            {
+                try
+                {
+                    baglanti.Open();
+                    SqlCommand sqlCommand = new SqlCommand("UPDATE TableKitaplar SET OduncAlan = @P1, OduncAlmaTarihi = @P2, Durum = @P3 WHERE ID = @P4", baglanti);
+                    sqlCommand.Parameters.AddWithValue("@P1", textBoxOduncAlan.Text);
+                    sqlCommand.Parameters.AddWithValue("@P3", "False");
+                    sqlCommand.Parameters.AddWithValue("@P4", labelID.Text);
+                    sqlCommand.Parameters.Add("P2", SqlDbType.Date).Value = dateTimePickerOduncAlmaTarihi.Value.Date;
+
+
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Kitap Ödünç İşlemi Sırasında Hata Oluştu " + ex.Message);
+                }
+                finally
+                {
+                    baglanti.Close();
+                }
+                verileriGoster();
+            }
+            else
+            {
+                MessageBox.Show("Lütfen Listeden Bir Kitap Seciniz !");
+            }
         }
     }
 }
