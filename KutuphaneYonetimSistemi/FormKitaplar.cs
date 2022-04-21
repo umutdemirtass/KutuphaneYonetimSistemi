@@ -13,7 +13,7 @@ namespace KutuphaneYonetimSistemi
 {
     public partial class FormKitaplar : Form
     {
-        SqlConnection baglati = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=DbYTAKutuphane;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=DbYTAKutuphane;Integrated Security=True");
         public FormKitaplar()
         {
             InitializeComponent();
@@ -22,15 +22,23 @@ namespace KutuphaneYonetimSistemi
 
         private void verileriGoster()
         {
-            string q = "SELECT * FROM TableKitaplar";
-            SqlDataAdapter da = new SqlDataAdapter(q, baglati);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-
-            if (dt.Rows.Count > 0)
+            try
             {
-                dataGridViewKitaplar.DataSource = dt;
+                string q = "SELECT * FROM TableKitaplar";
+                SqlDataAdapter da = new SqlDataAdapter(q, baglanti);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    dataGridViewKitaplar.DataSource = dt;
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void FormKitaplar_Load(object sender, EventArgs e)
@@ -43,9 +51,9 @@ namespace KutuphaneYonetimSistemi
 
             try
             {
-                baglati.Open();
+                baglanti.Open();
 
-                SqlCommand sqlCommand = new SqlCommand("INSERT INTO TableKitaplar (KitapAdi, YazarAdi, YazarSoyadi, ISBN, Durum, KitapTurKodu) VALUES (@P1, @P2, @P3, @P4, @P5, @P6)", baglati);
+                SqlCommand sqlCommand = new SqlCommand("INSERT INTO TableKitaplar (KitapAdi, YazarAdi, YazarSoyadi, ISBN, Durum, KitapTurKodu) VALUES (@P1, @P2, @P3, @P4, @P5, @P6)", baglanti);
                 sqlCommand.Parameters.AddWithValue("@P1", textBoxKitapAdi.Text);
                 sqlCommand.Parameters.AddWithValue("@P2", textBoxYazarAdi.Text);
                 sqlCommand.Parameters.AddWithValue("@P3", textBoxYazarSoyad.Text);
@@ -61,13 +69,53 @@ namespace KutuphaneYonetimSistemi
             }
             finally
             {
-                baglati.Close();
+                baglanti.Close();
             }
 
             verileriGoster();
 
         }
 
-        
+        private void dataGridViewKitaplar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int secilenSatir = dataGridViewKitaplar.SelectedCells[0].RowIndex;
+            labelID.Text = dataGridViewKitaplar.Rows[secilenSatir].Cells[0].Value.ToString();
+            textBoxKitapAdi.Text = dataGridViewKitaplar.Rows[secilenSatir].Cells[1].Value.ToString();
+            textBoxYazarAdi.Text = dataGridViewKitaplar.Rows[secilenSatir].Cells[2].Value.ToString();
+            textBoxYazarSoyad.Text = dataGridViewKitaplar.Rows[secilenSatir].Cells[3].Value.ToString();
+            textBoxISBN.Text = dataGridViewKitaplar.Rows[secilenSatir].Cells[4].Value.ToString();
+            textBoxKitapTurKodu.Text = dataGridViewKitaplar.Rows[secilenSatir].Cells[8].Value.ToString();
+
+            textBoxOduncAlan.Text = dataGridViewKitaplar.Rows[secilenSatir].Cells[6].Value.ToString();
+            if (dataGridViewKitaplar.Rows[secilenSatir].Cells[7].Value != DBNull.Value)
+            dateTimePickerOduncAlmaTarihi.Value = (DateTime) dataGridViewKitaplar.Rows[secilenSatir].Cells[7].Value;
+        }
+
+        private void buttonKitapBilgiGuncelle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                baglanti.Open();
+                SqlCommand sqlCommand = new SqlCommand("UPDATE TableKitaplar SET KitapAdi = @P1, YazarAdi = @P2, YazarSoyadi = @P3, ISBN = @P4, KitapTurKodu = @P5 WHERE ID = @P6", baglanti);
+
+                sqlCommand.Parameters.AddWithValue("@P1", textBoxKitapAdi.Text);
+                sqlCommand.Parameters.AddWithValue("@P2", textBoxYazarAdi.Text);
+                sqlCommand.Parameters.AddWithValue("@P3", textBoxYazarSoyad.Text);
+                sqlCommand.Parameters.AddWithValue("@P4", textBoxISBN.Text);
+                sqlCommand.Parameters.AddWithValue("@P5", textBoxKitapTurKodu.Text);
+                sqlCommand.Parameters.AddWithValue("@P6", labelID.Text);
+
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kitap Güncellenirken Hata Oluştu " + ex.Message);
+            }
+            finally
+            {
+                baglanti.Close();
+            }
+            
+        }
     }
 }

@@ -38,7 +38,7 @@
             this.textBoxKitapAdi = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelID = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -75,7 +75,7 @@
             this.groupBox1.Controls.Add(this.textBoxKitapAdi);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.labelID);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
@@ -95,6 +95,7 @@
             this.buttonKitapBilgiGuncelle.TabIndex = 13;
             this.buttonKitapBilgiGuncelle.Text = "Kitap Bilgileri Güncelle";
             this.buttonKitapBilgiGuncelle.UseVisualStyleBackColor = true;
+            this.buttonKitapBilgiGuncelle.Click += new System.EventHandler(this.buttonKitapBilgiGuncelle_Click);
             // 
             // buttonKitapEkle
             // 
@@ -127,7 +128,7 @@
             this.textBoxYazarSoyad.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxYazarSoyad.Location = new System.Drawing.Point(226, 163);
             this.textBoxYazarSoyad.Name = "textBoxYazarSoyad";
-            this.textBoxYazarSoyad.Size = new System.Drawing.Size(121, 30);
+            this.textBoxYazarSoyad.Size = new System.Drawing.Size(188, 30);
             this.textBoxYazarSoyad.TabIndex = 9;
             // 
             // textBoxYazarAdi
@@ -135,7 +136,7 @@
             this.textBoxYazarAdi.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxYazarAdi.Location = new System.Drawing.Point(226, 123);
             this.textBoxYazarAdi.Name = "textBoxYazarAdi";
-            this.textBoxYazarAdi.Size = new System.Drawing.Size(121, 30);
+            this.textBoxYazarAdi.Size = new System.Drawing.Size(188, 30);
             this.textBoxYazarAdi.TabIndex = 8;
             // 
             // textBoxKitapAdi
@@ -143,7 +144,7 @@
             this.textBoxKitapAdi.Font = new System.Drawing.Font("Century", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxKitapAdi.Location = new System.Drawing.Point(226, 77);
             this.textBoxKitapAdi.Name = "textBoxKitapAdi";
-            this.textBoxKitapAdi.Size = new System.Drawing.Size(121, 30);
+            this.textBoxKitapAdi.Size = new System.Drawing.Size(188, 30);
             this.textBoxKitapAdi.TabIndex = 1;
             // 
             // label7
@@ -166,14 +167,14 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Kitap ID :";
             // 
-            // label2
+            // labelID
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(226, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(12, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "-";
+            this.labelID.AutoSize = true;
+            this.labelID.Location = new System.Drawing.Point(226, 48);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(12, 15);
+            this.labelID.TabIndex = 2;
+            this.labelID.Text = "-";
             // 
             // label3
             // 
@@ -349,7 +350,8 @@
             // 
             // dataGridViewKitaplar
             // 
-            this.dataGridViewKitaplar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridViewKitaplar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewKitaplar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridViewKitaplar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewKitaplar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewKitaplar.Location = new System.Drawing.Point(3, 19);
@@ -357,6 +359,7 @@
             this.dataGridViewKitaplar.RowTemplate.Height = 25;
             this.dataGridViewKitaplar.Size = new System.Drawing.Size(1108, 221);
             this.dataGridViewKitaplar.TabIndex = 0;
+            this.dataGridViewKitaplar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKitaplar_CellClick);
             // 
             // FormKitaplar
             // 
@@ -387,7 +390,7 @@
 
         private GroupBox groupBox1;
         private Label label1;
-        private Label label2;
+        private Label labelID;
         private Label label3;
         private Label label5;
         private Label label6;
