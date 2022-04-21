@@ -78,6 +78,7 @@ namespace KutuphaneYonetimSistemi
 
         private void dataGridViewKitaplar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            labelGecikmeBedeli.Text = "0";
             int secilenSatir = dataGridViewKitaplar.SelectedCells[0].RowIndex;
             labelID.Text = dataGridViewKitaplar.Rows[secilenSatir].Cells[0].Value.ToString();
             textBoxKitapAdi.Text = dataGridViewKitaplar.Rows[secilenSatir].Cells[1].Value.ToString();
@@ -131,7 +132,6 @@ namespace KutuphaneYonetimSistemi
                     sqlCommand.Parameters.AddWithValue("@P4", labelID.Text);
                     sqlCommand.Parameters.Add("P2", SqlDbType.Date).Value = dateTimePickerOduncAlmaTarihi.Value.Date;
 
-
                     sqlCommand.ExecuteNonQuery();
                 }
                 catch (Exception ex)
@@ -147,6 +147,48 @@ namespace KutuphaneYonetimSistemi
             else
             {
                 MessageBox.Show("Lütfen Listeden Bir Kitap Seciniz !");
+            }
+        }
+
+        private void buttonGecikmeBedeliHesapla_Click(object sender, EventArgs e)
+        {
+            if (labelID.Text != "-")
+            {
+                DateTime bugununTarihi = DateTime.Now;
+                int gunFarki = (int) (bugununTarihi - dateTimePickerOduncAlmaTarihi.Value.Date).TotalDays;
+                if (gunFarki > 10)
+                {
+                    int gecikmeBedeli = gunFarki - 10 * 1;
+                    labelGecikmeBedeli.Text = gecikmeBedeli.ToString();
+                }
+
+            }
+        }
+
+        private void buttonKitabiIadeEt_Click(object sender, EventArgs e)
+        {
+            if (labelID.Text != "-") 
+            {
+                try
+                {
+                    baglanti.Open();
+                    SqlCommand sqlCommand = new SqlCommand("UPDATE TableKitaplar SET OduncAlan = @P1, OduncAlmaTarihi = @P2, Durum = @P3 WHERE ID = @P4", baglanti);
+                    sqlCommand.Parameters.AddWithValue("@P1", " ");
+                    sqlCommand.Parameters.AddWithValue("@P3", "True");
+                    sqlCommand.Parameters.AddWithValue("@P4", labelID.Text);
+                    sqlCommand.Parameters.Add("P2", SqlDbType.Date).Value = DBNull.Value;
+                    sqlCommand.ExecuteNonQuery();
+                    textBoxOduncAlan.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Kitap İade İşlemi Sırasında Hata Oluştu " + ex.Message);
+                }
+                finally
+                {
+                    baglanti.Close();
+                }
+                verileriGoster();
             }
         }
     }

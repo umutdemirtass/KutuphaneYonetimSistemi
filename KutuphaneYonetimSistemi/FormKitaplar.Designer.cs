@@ -299,6 +299,7 @@
             this.buttonKitabiIadeEt.TabIndex = 16;
             this.buttonKitabiIadeEt.Text = "Kitabı İade Et";
             this.buttonKitabiIadeEt.UseVisualStyleBackColor = true;
+            this.buttonKitabiIadeEt.Click += new System.EventHandler(this.buttonKitabiIadeEt_Click);
             // 
             // label11
             // 
@@ -328,6 +329,7 @@
             this.buttonGecikmeBedeliHesapla.TabIndex = 13;
             this.buttonGecikmeBedeliHesapla.Text = "Gecikme Bedeli Hesapla";
             this.buttonGecikmeBedeliHesapla.UseVisualStyleBackColor = true;
+            this.buttonGecikmeBedeliHesapla.Click += new System.EventHandler(this.buttonGecikmeBedeliHesapla_Click);
             // 
             // label10
             // 
