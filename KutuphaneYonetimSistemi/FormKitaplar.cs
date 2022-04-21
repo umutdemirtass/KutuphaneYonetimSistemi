@@ -194,6 +194,10 @@ namespace KutuphaneYonetimSistemi
 
         private void buttonTemizle_Click(object sender, EventArgs e)
         {
+            metinKutularınıTemizle();
+        }
+        public void metinKutularınıTemizle()
+        {
             labelID.Text = "-";
             textBoxKitapAdi.Text = "";
             textBoxYazarAdi.Text = "";
@@ -202,7 +206,6 @@ namespace KutuphaneYonetimSistemi
             textBoxKitapTurKodu.Text = "";
             textBoxOduncAlan.Text = "";
         }
-
         private void buttonAra_Click(object sender, EventArgs e)
         {
             aramaSonuclariniGoster();
@@ -237,6 +240,34 @@ namespace KutuphaneYonetimSistemi
         private void buttonTümKitaplarıGöster_Click(object sender, EventArgs e)
         {
             verileriGoster();
+        }
+
+        private void buttonSil_Click(object sender, EventArgs e)
+        {
+            if (labelID.Text == "-" || labelID.Text == "")
+            {
+                MessageBox.Show("Lütfen Listeden Silinecek Kitabı Seciniz");
+            }
+            else
+            {
+                try
+                {
+                    baglanti.Open();
+                    SqlCommand sqlCommand = new SqlCommand("DELETE FROM TableKitaplar WHERE ID = @P1", baglanti);
+                    sqlCommand.Parameters.AddWithValue("@P1", labelID.Text);
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Kitap Silinirken Hata Oluştu " + ex.Message);
+                }
+                finally
+                {
+                    baglanti.Close();
+                }
+                verileriGoster();
+                metinKutularınıTemizle();
+            }
         }
     }
 }

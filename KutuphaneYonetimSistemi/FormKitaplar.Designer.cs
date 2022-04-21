@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonTümKitaplarıGöster = new System.Windows.Forms.Button();
             this.buttonAra = new System.Windows.Forms.Button();
             this.buttonTemizle = new System.Windows.Forms.Button();
             this.buttonKitapBilgiGuncelle = new System.Windows.Forms.Button();
@@ -59,7 +60,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridViewKitaplar = new System.Windows.Forms.DataGridView();
-            this.buttonTümKitaplarıGöster = new System.Windows.Forms.Button();
+            this.buttonSil = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -69,6 +70,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonSil);
             this.groupBox1.Controls.Add(this.buttonTümKitaplarıGöster);
             this.groupBox1.Controls.Add(this.buttonAra);
             this.groupBox1.Controls.Add(this.buttonTemizle);
@@ -88,14 +90,24 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(12, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(674, 403);
+            this.groupBox1.Size = new System.Drawing.Size(736, 403);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kitap Kayıt ve Güncelleme";
             // 
+            // buttonTümKitaplarıGöster
+            // 
+            this.buttonTümKitaplarıGöster.Location = new System.Drawing.Point(598, 323);
+            this.buttonTümKitaplarıGöster.Name = "buttonTümKitaplarıGöster";
+            this.buttonTümKitaplarıGöster.Size = new System.Drawing.Size(110, 40);
+            this.buttonTümKitaplarıGöster.TabIndex = 16;
+            this.buttonTümKitaplarıGöster.Text = "Tüm Kitapları Göster";
+            this.buttonTümKitaplarıGöster.UseVisualStyleBackColor = true;
+            this.buttonTümKitaplarıGöster.Click += new System.EventHandler(this.buttonTümKitaplarıGöster_Click);
+            // 
             // buttonAra
             // 
-            this.buttonAra.Location = new System.Drawing.Point(411, 323);
+            this.buttonAra.Location = new System.Drawing.Point(482, 324);
             this.buttonAra.Name = "buttonAra";
             this.buttonAra.Size = new System.Drawing.Size(110, 40);
             this.buttonAra.TabIndex = 15;
@@ -105,7 +117,7 @@
             // 
             // buttonTemizle
             // 
-            this.buttonTemizle.Location = new System.Drawing.Point(281, 323);
+            this.buttonTemizle.Location = new System.Drawing.Point(366, 323);
             this.buttonTemizle.Name = "buttonTemizle";
             this.buttonTemizle.Size = new System.Drawing.Size(110, 40);
             this.buttonTemizle.TabIndex = 14;
@@ -125,7 +137,7 @@
             // 
             // buttonKitapEkle
             // 
-            this.buttonKitapEkle.Location = new System.Drawing.Point(150, 324);
+            this.buttonKitapEkle.Location = new System.Drawing.Point(134, 324);
             this.buttonKitapEkle.Name = "buttonKitapEkle";
             this.buttonKitapEkle.Size = new System.Drawing.Size(110, 40);
             this.buttonKitapEkle.TabIndex = 12;
@@ -250,7 +262,7 @@
             this.groupBox2.Controls.Add(this.textBoxOduncAlan);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Location = new System.Drawing.Point(709, 0);
+            this.groupBox2.Location = new System.Drawing.Point(782, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(326, 403);
             this.groupBox2.TabIndex = 0;
@@ -310,7 +322,7 @@
             this.groupBox3.Controls.Add(this.labelGecikmeBedeli);
             this.groupBox3.Controls.Add(this.buttonGecikmeBedeliHesapla);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Location = new System.Drawing.Point(1055, 0);
+            this.groupBox3.Location = new System.Drawing.Point(1141, 2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(319, 403);
             this.groupBox3.TabIndex = 0;
@@ -372,7 +384,7 @@
             this.groupBox4.Controls.Add(this.dataGridViewKitaplar);
             this.groupBox4.Location = new System.Drawing.Point(12, 409);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1362, 243);
+            this.groupBox4.Size = new System.Drawing.Size(1448, 243);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Kitap Listesi";
@@ -386,26 +398,26 @@
             this.dataGridViewKitaplar.Location = new System.Drawing.Point(3, 19);
             this.dataGridViewKitaplar.Name = "dataGridViewKitaplar";
             this.dataGridViewKitaplar.RowTemplate.Height = 25;
-            this.dataGridViewKitaplar.Size = new System.Drawing.Size(1356, 221);
+            this.dataGridViewKitaplar.Size = new System.Drawing.Size(1442, 221);
             this.dataGridViewKitaplar.TabIndex = 0;
             this.dataGridViewKitaplar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKitaplar_CellClick);
             // 
-            // buttonTümKitaplarıGöster
+            // buttonSil
             // 
-            this.buttonTümKitaplarıGöster.Location = new System.Drawing.Point(545, 324);
-            this.buttonTümKitaplarıGöster.Name = "buttonTümKitaplarıGöster";
-            this.buttonTümKitaplarıGöster.Size = new System.Drawing.Size(110, 40);
-            this.buttonTümKitaplarıGöster.TabIndex = 16;
-            this.buttonTümKitaplarıGöster.Text = "Tüm Kitapları Göster";
-            this.buttonTümKitaplarıGöster.UseVisualStyleBackColor = true;
-            this.buttonTümKitaplarıGöster.Click += new System.EventHandler(this.buttonTümKitaplarıGöster_Click);
+            this.buttonSil.Location = new System.Drawing.Point(250, 323);
+            this.buttonSil.Name = "buttonSil";
+            this.buttonSil.Size = new System.Drawing.Size(110, 40);
+            this.buttonSil.TabIndex = 17;
+            this.buttonSil.Text = "Kitap Sil";
+            this.buttonSil.UseVisualStyleBackColor = true;
+            this.buttonSil.Click += new System.EventHandler(this.buttonSil_Click);
             // 
             // FormKitaplar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1387, 664);
+            this.ClientSize = new System.Drawing.Size(1476, 664);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -459,5 +471,6 @@
         private Button buttonTemizle;
         private Button buttonAra;
         private Button buttonTümKitaplarıGöster;
+        private Button buttonSil;
     }
 }
