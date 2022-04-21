@@ -269,10 +269,5 @@ namespace KutuphaneYonetimSistemi
                 metinKutularınıTemizle();
             }
         }
-
-        private void FormKitaplar_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }

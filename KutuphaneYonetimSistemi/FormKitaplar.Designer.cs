@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKitaplar));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.buttonSil = new System.Windows.Forms.Button();
             this.buttonTümKitaplarıGöster = new System.Windows.Forms.Button();
             this.buttonAra = new System.Windows.Forms.Button();
             this.buttonTemizle = new System.Windows.Forms.Button();
@@ -62,6 +60,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridViewKitaplar = new System.Windows.Forms.DataGridView();
+            this.buttonSil = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -95,16 +94,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kitap Kayıt ve Güncelleme";
-            // 
-            // buttonSil
-            // 
-            this.buttonSil.Location = new System.Drawing.Point(250, 323);
-            this.buttonSil.Name = "buttonSil";
-            this.buttonSil.Size = new System.Drawing.Size(110, 40);
-            this.buttonSil.TabIndex = 17;
-            this.buttonSil.Text = "Kitap Sil";
-            this.buttonSil.UseVisualStyleBackColor = true;
-            this.buttonSil.Click += new System.EventHandler(this.buttonSil_Click);
             // 
             // buttonTümKitaplarıGöster
             // 
@@ -413,6 +402,16 @@
             this.dataGridViewKitaplar.TabIndex = 0;
             this.dataGridViewKitaplar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKitaplar_CellClick);
             // 
+            // buttonSil
+            // 
+            this.buttonSil.Location = new System.Drawing.Point(250, 323);
+            this.buttonSil.Name = "buttonSil";
+            this.buttonSil.Size = new System.Drawing.Size(110, 40);
+            this.buttonSil.TabIndex = 17;
+            this.buttonSil.Text = "Kitap Sil";
+            this.buttonSil.UseVisualStyleBackColor = true;
+            this.buttonSil.Click += new System.EventHandler(this.buttonSil_Click);
+            // 
             // FormKitaplar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -423,10 +422,8 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormKitaplar";
-            this.Text = "AHS Kütüphane Yönetim Sistemi";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormKitaplar_FormClosed);
+            this.Text = "AHS Kütüphane Kitap Yönetim Sistemi";
             this.Load += new System.EventHandler(this.FormKitaplar_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

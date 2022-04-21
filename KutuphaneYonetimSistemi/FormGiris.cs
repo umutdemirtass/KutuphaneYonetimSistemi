@@ -32,7 +32,6 @@ namespace KutuphaneYonetimSistemi
                 if (sifre == textBoxSifre.Text)
                 {
                     formKitaplar = new FormKitaplar();
-                    this.Hide();
                     formKitaplar.Show();
 
                 }
